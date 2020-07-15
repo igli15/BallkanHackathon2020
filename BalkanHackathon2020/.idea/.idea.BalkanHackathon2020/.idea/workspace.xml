@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1421946d-100b-4466-9a5d-641eee542e03" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BalkanHackathon2020/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BalkanHackathon2020/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BalkanHackathon2020/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BalkanHackathon2020/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Own/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Own/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Own/Scripts/LevelScripts/Level1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Own/Scripts/LevelScripts/Level1.cs" afterDir="false" />
@@ -105,7 +104,7 @@
       <workItem from="1594676511477" duration="35508000" />
       <workItem from="1594806168236" duration="2588000" />
       <workItem from="1594817726376" duration="8583000" />
-      <workItem from="1594839658573" duration="536000" />
+      <workItem from="1594839658573" duration="1252000" />
     </task>
     <servers />
   </component>
