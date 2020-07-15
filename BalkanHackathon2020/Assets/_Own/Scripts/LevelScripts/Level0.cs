@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Level0 : AbstractLevel
 {
-    public SimpleEditor editor;
     public Rigidbody playersRb;
 
     public TextMeshProUGUI helpTextMesh;
@@ -61,8 +60,8 @@ public class Level0 : AbstractLevel
 
     void OnCompileBegin(Compiler compiler)
     {
-        editor.compiler.AddInput("player.Speed", 80);
-        editor.compiler.AddOutputFunction("AddForceToPlayer");
+        compiler.AddInput("player.Speed", 80);
+        compiler.AddOutputFunction("AddForceToPlayer");
     }
     
     void OnCompileEnd(List<VirtualFunction> virtualFunctions)
@@ -71,7 +70,7 @@ public class Level0 : AbstractLevel
              {
                  if (virtualFunctions[i].name == "AddForceToPlayer")
                  {
-                     Debug.Log("here");
+                     
                      playersRb.AddForce(playersRb.transform.forward * virtualFunctions[i].values[0]);
                  }
              }

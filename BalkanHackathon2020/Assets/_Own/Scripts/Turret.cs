@@ -9,8 +9,9 @@ public class Turret : MonoBehaviour
     public Transform head;
     public Transform barrelTransform;
     public LineRenderer aimLineRenderer;
-
-    public void ShootAt(Vector3 targetPos)
+    public Vector3 targetPos;
+    public bool followTarget = true;
+    public void ShootAtTarget()
     {
         transform.DOPunchRotation(barrelTransform.up * 8, 1.0f);
         aimLineRenderer.enabled = false;
@@ -32,10 +33,10 @@ public class Turret : MonoBehaviour
         aimLineRenderer.enabled = true;
     }
     
-    public void AimAt(Vector3 pos)
+    public void AimAtTarget()
     {
-        head.LookAt(pos);
+        head.LookAt(targetPos);
         aimLineRenderer.SetPosition(0,barrelTransform.position);
-        aimLineRenderer.SetPosition(1,pos);
+        aimLineRenderer.SetPosition(1,targetPos);
     }
 }

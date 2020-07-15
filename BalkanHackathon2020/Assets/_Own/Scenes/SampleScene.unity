@@ -2555,7 +2555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c9798a354b1446b9003fd658689ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editor: {fileID: 573822214}
   playersRb: {fileID: 201751373}
   helpTextMesh: {fileID: 682547087}
 --- !u!1 &633330484
@@ -2901,7 +2900,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 8.267203e-19, z: 4.5915e-41, w: 9.000594e-19}
+  m_BoundingSphereOverride: {x: 9.1837e-41, y: -1.375e-42, z: 1.02e-43, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4579,6 +4578,7 @@ MonoBehaviour:
   - {fileID: 1762681820}
   playerTransform: {fileID: 2067351032}
   turretReloadTime: 3
+  playersRb: {fileID: 2067351028}
 --- !u!4 &1438861329
 Transform:
   m_ObjectHideFlags: 0
@@ -5769,6 +5769,8 @@ MonoBehaviour:
   head: {fileID: 1858496984}
   barrelTransform: {fileID: 528021616}
   aimLineRenderer: {fileID: 2091709649}
+  targetPos: {x: 0, y: 0, z: 0}
+  followTarget: 1
 --- !u!1 &1843139136
 GameObject:
   m_ObjectHideFlags: 0
@@ -7524,6 +7526,8 @@ MonoBehaviour:
   head: {fileID: 6726946448190529228}
   barrelTransform: {fileID: 779140541}
   aimLineRenderer: {fileID: 790310219}
+  targetPos: {x: 0, y: 0, z: 0}
+  followTarget: 1
 --- !u!1 &6726946448190948072
 GameObject:
   m_ObjectHideFlags: 0
