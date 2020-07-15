@@ -12,7 +12,8 @@ public class SimpleEditor : MonoBehaviour
     public TMP_Text highlightedText;
     public SyntaxTheme syntaxTheme;
     public Compiler compiler;
-
+    public LevelManager levelManager;
+    
     public static Action<List<VirtualFunction>> OnCompileEnd;
     public static Action<Compiler> OnCompileBegin;
     private bool leftControl = false;
@@ -48,6 +49,10 @@ public class SimpleEditor : MonoBehaviour
             List<VirtualFunction> list = compiler.Run();
             if (OnCompileEnd != null) OnCompileEnd(list);
 
+        }
+        else if (leftControl && Input.GetKeyDown(KeyCode.R))
+        {
+            levelManager.ResetCurrentLevel();
         }
     }
 }

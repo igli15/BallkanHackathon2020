@@ -16,11 +16,14 @@
               <e p="SyntaxTheme.cs" t="Include" />
               <e p="ValueString.cs" t="Include" />
             </e>
+            <e p="LevelManager.cs" t="Include" />
             <e p="LevelScripts" t="Include">
               <e p="AbstractLevel.cs" t="Include" />
               <e p="Level0.cs" t="Include" />
               <e p="Level1.cs" t="Include" />
             </e>
+            <e p="Player.cs" t="Include" />
+            <e p="RestartCourseScript.cs" t="Include" />
             <e p="Turret.cs" t="Include" />
             <e p="VirtualEditor" t="Include">
               <e p="Logger.cs" t="Include" />

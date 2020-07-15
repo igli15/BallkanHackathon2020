@@ -8,9 +8,7 @@ public class Level0 : AbstractLevel
 {
     public Rigidbody playersRb;
 
-    public TextMeshProUGUI helpTextMesh;
-    
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,9 +38,11 @@ public class Level0 : AbstractLevel
                             "CTRL + R: Restart Level" + "\n"; 
     }
 
-    public void Reset()
+    public override void Reset()
     {
-        
+        playersRb.velocity = Vector3.zero;
+        playersRb.transform.SetPositionAndRotation(playerSpawnTransform.position,playerSpawnTransform.rotation);
+        editor.ResetEditor();
     }
 
     
@@ -71,7 +71,10 @@ public class Level0 : AbstractLevel
                  if (virtualFunctions[i].name == "AddForceToPlayer")
                  {
                      
-                     playersRb.AddForce(playersRb.transform.forward * virtualFunctions[i].values[0]);
+                     float speed = virtualFunctions[i].values[0];
+                     if (speed >= 150) speed = 150;
+            
+                     playersRb.AddForce(playersRb.transform.forward * speed);
                  }
              }
          }

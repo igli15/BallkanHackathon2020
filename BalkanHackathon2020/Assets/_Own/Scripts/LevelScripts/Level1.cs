@@ -12,6 +12,36 @@ public class Level1 : AbstractLevel
 
    private float timeCounter = 0f;
 
+   private void Start()
+   {
+      helpTextMesh.text = "\n" + "<#F188AC>VARIABLES:</color> " + "\n" +
+                          "-------------------------------" 
+                          +"\n" + 
+                          "player.speed" +
+                          "\n" + "\n"+  "\n" + "\n" + 
+                          "<#F188AC>FUNCTIONS:</color> " + 
+                          "\n" +
+                          "-------------------------------" +
+                          "\n" +
+                          "AddForceToPlayer(force)"+
+                          "\n" +
+                          "SetTurretAim(turretIndex,x,y,z)" + 
+                          "\n" + "\n"+  "\n" + "\n" +
+                          "<#F188AC>GOAL:</color> " +
+                          "\n"+
+                          "-------------------------------" +
+                          "\n" +
+                          "Avoid getting shot by turrets and move the player past the blue line" +  
+                          "\n" + "\n"+  "\n" + "\n" + 
+                          "<#F188AC>COMMANDS:</color> " + 
+                          "\n" +
+                          "-------------------------------" +
+                          "\n"+
+                          "CTRL + C: Run Code" + "\n" +
+                          "CTRL + L: Clear Console" + "\n" +
+                          "CTRL + R: Restart Level" + "\n"; 
+   }
+
    private void OnEnable()
    {
       SimpleEditor.OnCompileEnd += OnCompileEnd;
@@ -23,6 +53,21 @@ public class Level1 : AbstractLevel
       SimpleEditor.OnCompileEnd -= OnCompileEnd;
       SimpleEditor.OnCompileBegin -= OnCompileBegin;
    }
+   
+   public override void Reset()
+   {
+      playersRb.GetComponent<MeshRenderer>().enabled = true;
+      playersRb.velocity = Vector3.zero;
+      playersRb.transform.SetPositionAndRotation(playerSpawnTransform.position,playerSpawnTransform.rotation);
+
+      foreach (var turret in turrets)
+      {
+         turret.Reset();
+      }
+      editor.ResetEditor();
+
+      run = false;
+   }
 
    private void OnCompileEnd(List<VirtualFunction> virtualFunctions)
    {
@@ -31,15 +76,18 @@ public class Level1 : AbstractLevel
       {
          if (virtualFunctions[i].name == "AddForceToPlayer")
          {
-            playersRb.AddForce(playersRb.transform.forward * virtualFunctions[i].values[0]);
+            float speed = virtualFunctions[i].values[0];
+            if (speed >= 150) speed = 150;
+            
+            playersRb.AddForce(playersRb.transform.forward * speed);
          }
          else if (virtualFunctions[i].name == "SetTurretAim")
          {
             int index = (int)(virtualFunctions[i].values[0]);
             if (index > 1) continue;
-
-            turrets[i].followTarget = false;
-            turrets[i].targetPos = new Vector3(virtualFunctions[i].values[1],virtualFunctions[i].values[2],virtualFunctions[i].values[3]);
+            
+            turrets[index].followTarget = false;
+            turrets[index].targetPos = new Vector3(virtualFunctions[i].values[1],virtualFunctions[i].values[2],virtualFunctions[i].values[3]);
          }
       }
    }

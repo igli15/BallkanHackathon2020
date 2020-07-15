@@ -19,11 +19,9 @@ public class Turret : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(barrelTransform.position, (targetPos - barrelTransform.position).normalized, out hit, 100))
         {
-            Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.CompareTag("Player"))
             {
-                hit.transform.gameObject.SetActive(false);
-                
+                hit.transform.GetComponent<Player>().Die();
             }
         }
     }
@@ -38,5 +36,13 @@ public class Turret : MonoBehaviour
         head.LookAt(targetPos);
         aimLineRenderer.SetPosition(0,barrelTransform.position);
         aimLineRenderer.SetPosition(1,targetPos);
+    }
+
+    public void Reset()
+    {
+        barrelTransform.rotation = Quaternion.identity;
+        followTarget = true;
+        aimLineRenderer.SetPosition(0,new Vector3(-100,-100,-100));
+        aimLineRenderer.SetPosition(1,new Vector3(-100,-100,-100));
     }
 }
