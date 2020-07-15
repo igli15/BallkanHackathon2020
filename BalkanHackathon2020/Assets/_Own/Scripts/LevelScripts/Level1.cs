@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class Level1 : AbstractLevel
 {
-   public Transform turretHead;
-
+   public Transform[] turretHeads;
+   public Transform playerTransform;
+   private Vector3 targetPos;
 
    private void Update()
    {
+      run = true;
       if (run)
       {
-         
+         targetPos = playerTransform.position;
+         foreach (Transform t in turretHeads)
+         {
+            t.LookAt(targetPos);
+         }
       }
    }
 }
