@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.TextCore;
 
 public class Turret : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class Turret : MonoBehaviour
 
     public void ShootAt(Vector3 targetPos)
     {
+        transform.DOPunchRotation(barrelTransform.up * 8, 1.0f);
+        aimLineRenderer.enabled = false;
+        Invoke("ActivateLineRenderer",0.3f);
         RaycastHit hit;
         if (Physics.Raycast(barrelTransform.position, (targetPos - barrelTransform.position).normalized, out hit, 100))
         {
@@ -22,6 +27,11 @@ public class Turret : MonoBehaviour
         }
     }
 
+    void ActivateLineRenderer()
+    {
+        aimLineRenderer.enabled = true;
+    }
+    
     public void AimAt(Vector3 pos)
     {
         head.LookAt(pos);

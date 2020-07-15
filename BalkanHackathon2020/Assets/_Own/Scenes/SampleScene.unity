@@ -4578,7 +4578,7 @@ MonoBehaviour:
   - {fileID: 6726946448190948065}
   - {fileID: 1762681820}
   playerTransform: {fileID: 2067351032}
-  turretReloadTime: 5
+  turretReloadTime: 3
 --- !u!4 &1438861329
 Transform:
   m_ObjectHideFlags: 0

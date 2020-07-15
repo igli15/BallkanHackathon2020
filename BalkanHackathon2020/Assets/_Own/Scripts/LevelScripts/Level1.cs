@@ -18,7 +18,7 @@ public class Level1 : AbstractLevel
       run = true;
       if (run)
       {
-         timeCounter++;
+         timeCounter+= Time.deltaTime;
          
          targetPos = playerTransform.position;
          for (int i = 0; i < turrets.Length; i++)
